@@ -19,6 +19,7 @@ class Input(BaseModel):
 
 class Output(BaseModel):
     SalesInMillions: float
+    msg: object
 
 @app.post("/predict")
 
@@ -39,7 +40,8 @@ def predict2(data: Input) -> Output:
     prediction = model.predict(X_input)
 
     # output
-    return Output(SalesInMillions = prediction)
+    #return Output(SalesInMillions = prediction)
+    return Output(SalesInMillions = prediction, msg="git-change")
 
 
 '''
